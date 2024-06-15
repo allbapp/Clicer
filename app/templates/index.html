@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Welcome to the Clicker App</h1>
+    {% if current_user.is_authenticated %}
+        <p>Click count: {{ current_user.clicks }}</p>
+        <a href="{{ url_for('click') }}" class="btn btn-primary">Click me!</a>
+    {% else %}
+        <p>Please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a> to start clicking.</p>
+    {% endif %}
+{% endblock %}
